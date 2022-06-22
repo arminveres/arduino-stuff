@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Hex and Bin files
+*.bin
+*.hex
+
+**/.cache/
+
+compile_commands.json
