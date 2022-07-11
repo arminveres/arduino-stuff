@@ -7,6 +7,9 @@
 *.o
 *.obj
 
+*.elf
+*.hex
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -38,3 +41,9 @@
 **/.cache/
 
 compile_commands.json
+
+# CMake ignore
+*.cmake
+CMakeCache.txt
+**/CMakeFiles/
+Makefile
