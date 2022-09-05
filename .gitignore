@@ -46,4 +46,3 @@ compile_commands.json
 *.cmake
 CMakeCache.txt
 **/CMakeFiles/
-Makefile
