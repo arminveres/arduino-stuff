@@ -3,7 +3,7 @@
 PROJECT = blink
 
 C_FLAGS := -Os
-CXX_FLAGS := -std=c++20
+CXX_FLAGS := -std=c++17
 INCLUDES := -I../common/include/
 SRCS := $(wildcard ../common/src/*.cpp)
 
@@ -17,7 +17,7 @@ C_FLAGS += -mmcu=$(CPU_TYPE)
 SRCS += $(wildcard ./src/*.cpp)
 
 build:
-	avr-c++ $(C_FLAGS) $(CXX_FLAGS) $(SRCS) $(INCLUDES) -o $(PROJECT).elf
+	avr-g++ $(C_FLAGS) $(CXX_FLAGS) $(SRCS) $(INCLUDES) -o $(PROJECT).elf
 	avr-strip $(PROJECT).elf
 	# remove eeprom, output ihex
 	avr-objcopy -R .eeprom -O ihex $(PROJECT).elf $(PROJECT).hex

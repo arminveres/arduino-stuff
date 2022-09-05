@@ -30,6 +30,8 @@ file(GLOB SRC_FILES "src/*.cpp") # Load all files in src folder
 
 # Create one target
 add_executable(${PROJECT_NAME} ${SRC_FILES})
+target_include_directories(${PROJECT_NAME} PRIVATE "../common/include/")
+file(GLOB SRC_FILES "../common/src/*.cpp") # Load all files in src folder
 
 # add_custom_target(bin ALL avr-g++ -o ${PROJECT_NAME}.bin ${PROJECT_NAME} DEPENDS ${PROJECT_NAME})
 

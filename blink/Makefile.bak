@@ -1,0 +1,17 @@
+.PHONY: build upload all clean compilecommands
+build:
+	avr-c++ -Os -DF_CPU=16000000UL -mmcu=atmega328p src/led.cpp ../common/src/arduino.cpp -I../common/include/ -o led.elf
+	avr-strip led.elf
+	avr-objcopy -O ihex -R .eeprom led.elf led.hex
+	mkdir -p build
+	mv led.* ./build
+upload:
+	sudo avrdude -FV -c arduino -p ATMEGA328P -P /dev/ttyACM0 -b 115200 -U flash:w:./build/led.hex
+
+all: build upload
+
+compilecommands:
+	compiledb -n make -f Makefile_bak
+
+clean:
+	rm -r ./build
